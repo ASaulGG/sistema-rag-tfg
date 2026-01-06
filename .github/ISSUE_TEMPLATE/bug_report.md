@@ -1,38 +1,57 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
+name: "🐛 Reporte de bug"
+about: "Informa un fallo reproducible (ingest / chat / deduplicación)"
+title: "[BUG] "
+labels: ["bug"]
+assignees: []
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## ✅ Descripción
+Explica el problema en 1–3 frases.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+## 🔁 Pasos para reproducir
+1.
+2.
+3.
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+## ✅ Resultado esperado
+¿Qué debería ocurrir?
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+## ❌ Resultado actual
+¿Qué ocurre realmente? (incluye el mensaje de error si aplica)
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+## 🧪 Comando ejecutado
+Marca uno y pega el comando exacto:
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+- [ ] `python ingest.py`
+- [ ] `python chat_ui.py`
+- [ ] `python check_cerebro_db_duplicates.py`
 
-**Additional context**
-Add any other context about the problem here.
+Comando exacto:
+```powershell
+# pega aquí el comando tal cual lo ejecutaste
+```
+
+## 🧾 Logs / traceback
+Pega la salida completa (sin datos sensibles):
+```text
+# pega aquí
+```
+
+## 🖥️ Entorno
+- SO: Windows 10 / Windows 11
+- Python: (pega `python --version`)
+- Método de instalación: `pip` / `uv`
+- `ffmpeg -version` (si aplica):
+
+## 🔐 Configuración (sin secretos)
+⚠️ No pegues tu `.env` ni tokens.
+
+Indica solo lo necesario:
+- `CHROMA_PATH`: 
+- `COLLECTION_NAME`:
+- Fuente afectada: PDF / Web / YouTube / Imagen
+- ¿Notion habilitado?: Sí/No
+
+## 📎 Contexto adicional
+Cualquier detalle extra, capturas o hipótesis.
