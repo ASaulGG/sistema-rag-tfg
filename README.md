@@ -171,8 +171,8 @@ sistema-rag-tfg/
 │   └── notion_template.md
 ├── .github
 │   └── ISSUE_TEMPLATE
-│      ├── bug_report.md
-│      └── feature_request.md
+│       ├── bug_report.md
+│       └── feature_request.md
 ├── assets/
     ├── chat_ui_run_1.png
     ├── chat_ui_run_2.png
