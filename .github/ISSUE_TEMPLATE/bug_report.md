@@ -1,13 +1,13 @@
 ---
 name: "🐛 Reporte de bug"
-about: "Informa un fallo reproducible (ingest / chat / deduplicación)"
+about: "Informar un fallo reproducible (ingest / chat / deduplicación)"
 title: "[BUG] "
 labels: ["bug"]
 assignees: []
 ---
 
 ## ✅ Descripción
-Explica el problema en 1–3 frases.
+Describir el problema en 1–3 frases.
 
 ## 🔁 Pasos para reproducir
 1.
@@ -15,13 +15,13 @@ Explica el problema en 1–3 frases.
 3.
 
 ## ✅ Resultado esperado
-¿Qué debería ocurrir?
+Indicar el comportamiento esperado.
 
 ## ❌ Resultado actual
-¿Qué ocurre realmente? (incluye el mensaje de error si aplica)
+Indicar el comportamiento observado (incluir el mensaje de error si aplica).
 
 ## 🧪 Comando ejecutado
-Marca uno y pega el comando exacto:
+Marcar una opción e incluir el comando exacto:
 
 - [ ] `python ingest.py`
 - [ ] `python chat_ui.py`
@@ -29,29 +29,29 @@ Marca uno y pega el comando exacto:
 
 Comando exacto:
 ```powershell
-# pega aquí el comando tal cual lo ejecutaste
+# incluir aquí el comando tal y como se ejecutó
 ```
 
 ## 🧾 Logs / traceback
-Pega la salida completa (sin datos sensibles):
+Incluir la salida completa (sin datos sensibles):
 ```text
-# pega aquí
+# incluir aquí
 ```
 
 ## 🖥️ Entorno
 - SO: Windows 10 / Windows 11
-- Python: (pega `python --version`)
+- Python: (incluir salida de `python --version`)
 - Método de instalación: `pip` / `uv`
 - `ffmpeg -version` (si aplica):
 
 ## 🔐 Configuración (sin secretos)
-⚠️ No pegues tu `.env` ni tokens.
+⚠️ No incluir `.env` ni tokens.
 
-Indica solo lo necesario:
-- `CHROMA_PATH`: 
+Indicar únicamente lo necesario:
+- `CHROMA_PATH`:
 - `COLLECTION_NAME`:
 - Fuente afectada: PDF / Web / YouTube / Imagen
-- ¿Notion habilitado?: Sí/No
+- ¿Notion habilitado?: Sí / No
 
 ## 📎 Contexto adicional
-Cualquier detalle extra, capturas o hipótesis.
+Añadir detalles, enlaces, capturas o hipótesis relevantes.

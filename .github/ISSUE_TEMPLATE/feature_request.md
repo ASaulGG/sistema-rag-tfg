@@ -1,25 +1,25 @@
 ---
 name: "✨ Solicitud de funcionalidad"
-about: "Propón una mejora o nueva característica"
+about: "Proponer una mejora o nueva característica"
 title: "[FEATURE] "
 labels: ["enhancement"]
 assignees: []
 ---
 
-## 🎯 Problema que quieres resolver
-¿Qué limitación o necesidad tienes hoy?
+## 🎯 Problema u objetivo
+Describir la limitación actual o el objetivo que se pretende cubrir.
 
 ## 💡 Propuesta
-Describe la solución que te gustaría (lo más concreta posible).
+Describir la solución propuesta (lo más concreta posible).
 
 ## ✅ Criterios de aceptación
-Lista lo que debe cumplirse para darla por implementada:
+Indicar qué condiciones deben cumplirse para darla por implementada:
 - [ ]
 - [ ]
 - [ ]
 
 ## 🔄 Alternativas consideradas
-¿Hay otras opciones? ¿Por qué no sirven?
+Indicar alternativas evaluadas y el motivo por el que no se eligen.
 
 ## 📌 Impacto
 - Prioridad: Baja / Media / Alta
@@ -27,4 +27,4 @@ Lista lo que debe cumplirse para darla por implementada:
 - Compatibilidad: (p. ej., solo Windows / futuro multiplataforma)
 
 ## 📎 Contexto adicional
-Enlaces, ejemplos, capturas o referencias.
+Añadir enlaces, ejemplos, capturas o referencias.
