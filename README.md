@@ -2,8 +2,8 @@
 
 # TFG RAG System — Notion → Ingesta → ChromaDB → Chat + Deduplicación
 
-> **Convierte tus apuntes, PDFs, webs, vídeos y fotos en un buscador inteligente.**  
-> Gestionas los recursos desde Notion, el sistema los ingiere y los guarda en ChromaDB, y luego consultas todo desde un chat.
+> **Convierte apuntes, PDFs, webs, vídeos y fotos en un buscador inteligente.**  
+> Los recursos se gestionan desde Notion, el sistema los ingiere y los guarda en ChromaDB, y después se consulta todo desde un chat.
 
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](#instalacion)
 [![ChromaDB](https://img.shields.io/badge/VectorDB-ChromaDB-green)](#arquitectura)
@@ -92,14 +92,14 @@ uv pip install -r .\requirements.txt
 
 ## ⚙️ Configuración (.env)
 
-Copia `.env.example` a `.env` y completa:
+Copiar `.env.example` a `.env` y completar:
 
 - **Notion (ingesta)**
-  - `NOTION_TOKEN`: crea una **Integration** en Notion y copia el **Internal Integration Token**. Comparte tu **database** con esa integración con permisos de **lectura/escritura** (se lee la database y se actualiza la propiedad `Procesado` al finalizar cada ingesta).
+  - `NOTION_TOKEN`: crear una **Integration** en Notion y copiar el **Internal Integration Token**. Compartir la **database** con esa integración con permisos de **lectura/escritura** (se lee la database y se actualiza la propiedad `Procesado` al finalizar cada ingesta).
   - `NOTION_DATABASE_ID`: ID de la base de datos (se obtiene desde la URL/enlace de la propia DB).
 
 - **Modelos / APIs**
-  - `GOOGLE_API_KEY`: crea una API key para Gemini (Google AI Studio / Google Cloud) y habilita el acceso al modelo.
+  - `GOOGLE_API_KEY`: crear una API key para Gemini (Google AI Studio / Google Cloud) y habilitar el acceso al modelo.
   - `GEMINI_TEXT_MODEL`: modelo de texto (por defecto: `gemini-3-flash-preview`).
   - `GEMINI_VISION_MODEL`: modelo de visión (por defecto: `gemini-3-pro-image-preview`).
   - `LLAMA_CLOUD_API_KEY`: API key de LlamaCloud/LlamaParse (desde su panel) para parseo de PDFs.
@@ -108,7 +108,7 @@ Copia `.env.example` a `.env` y completa:
   - `CHROMA_PATH`: ruta al vector DB persistente (por defecto: `./cerebro_db`).
   - `COLLECTION_NAME`: nombre de colección (por defecto: `tfg_master`).
 
-> Seguridad: no subas tu `.env` a GitHub (no hagas `git add/commit`). Solo versiona `.env.example`.
+> Seguridad: no subir `.env` a GitHub. Solo versionar `.env.example`.
 
 <a id="uso"></a>
 
@@ -128,12 +128,13 @@ python check_cerebro_db_duplicates.py
 
 ## 🗂️ Estructura de Datos
 
-### Notion (mínimo recomendado)
-- **Title**: propiedad tipo *title* (cualquier nombre; se detecta automáticamente).
-- `Procesado` (*checkbox*): marca si el recurso ya se ingirió.
-- `URL` (*url*): para recursos web.
-- `File` (*files*): para PDFs u otros adjuntos.
-- `Tags` (*multi_select*), `Note` (*rich_text*), `Like` (*checkbox*): opcionales.
+### Plantilla de Notion (lista para duplicar)
+
+Se ofrece una plantilla pública de la base de datos de Notion (sin información sensible) para replicar rápidamente la estructura y propiedades requeridas.
+
+- 📌 Duplicar plantilla: https://ripe-conga-3d3.notion.site/2e110e76eff881adbbbcc6f959243447?v=2e110e76eff88105a432000c9b9f4bbb&source=copy_link
+
+> Guía práctica (plantilla de propiedades + “Save to Notion”): `docs/notion_template.md`.
 
 ### ChromaDB (metadatos guardados)
 Cada documento se almacena con metadatos consistentes (ejemplo):
@@ -157,26 +158,39 @@ Cada documento se almacena con metadatos consistentes (ejemplo):
 ## 🧱 Estructura del Proyecto
 ```text
 sistema-rag-tfg/
-├─ ingest.py
-├─ chat_ui.py
-├─ check_cerebro_db_duplicates.py
-├─ requirements.txt
-├─ .env.example               # copiar a .env
-├─ README.md
-├─ LICENSE
-├─ .gitignore
-├─ assets/
-├─ ui_sessions/               # se crea/usa en runtime (no subir a GitHub)
-├─ cerebro_db/                # se crea/usa en runtime (no subir a GitHub)
-└─ .venv/                     # entorno local (no subir a GitHub)
+├── ingest.py
+├── chat_ui.py
+├── check_cerebro_db_duplicates.py
+├── requirements.txt
+├── .env.example               # copiar a .env
+├── README.md
+├── LICENSE
+├── .gitignore
+├── .gitattributes
+├── docs/
+│   └── notion_template.md
+├── .github
+│   └── ISSUE_TEMPLATE
+│      ├── bug_report.md
+│      └── feature_request.md
+├── assets/
+    ├── chat_ui_run_1.png
+    ├── chat_ui_run_2.png
+    ├── check_run.png
+    ├── ingest_run.png
+    ├── notion_db.png
+    └── notion_dbs_page.png
+├── ui_sessions/               # se crea/usa en runtime (no subir a GitHub)
+├── cerebro_db/                # se crea/usa en runtime (no subir a GitHub)
+└── .venv/                     # entorno local (no subir a GitHub)
 ```
 
 <a id="ejemplos-de-uso"></a>
 
 ## 🧪 Ejemplos de Uso
-- **Re-ingerir un recurso**: en Notion, desmarca `Procesado` y ejecuta `python ingest.py`.
-- **Eliminar duplicados**: ejecuta `python check_cerebro_db_duplicates.py` y sigue el modo interactivo.
-- **Reducir tamaño del SQLite**: usa la compactación del script (puede fallar si el fichero está en uso).
+- **Re-ingerir un recurso**: en Notion, desmarcar `Procesado` y ejecutar `python ingest.py`.
+- **Eliminar duplicados**: ejecutar `python check_cerebro_db_duplicates.py` y seguir el modo interactivo.
+- **Reducir tamaño del SQLite**: usar la compactación del script (puede fallar si el fichero está en uso).
 
 <a id="licencia"></a>
 
@@ -189,4 +203,3 @@ Este proyecto se distribuye bajo la licencia incluida en el repositorio (`LICENS
 [![GitHub](https://img.shields.io/badge/GitHub-ASaulGG-181717?logo=github&logoColor=white)](https://github.com/ASaulGG)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-asaulgg-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/asaulgg/)
 [![Email](https://img.shields.io/badge/Email-saulcv7890@gmail.com-EA4335?logo=gmail&logoColor=white)](mailto:saulcv7890@gmail.com)
-
