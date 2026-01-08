@@ -71,7 +71,7 @@ winget install Gyan.FFmpeg
 ```
 
 **SQLite CLI (opcional):** útil para inspección manual de `chroma.sqlite3`.  
-Los scripts usan el módulo `sqlite3` de Python, así que **no es requisito**.
+Los scripts usan el módulo `sqlite3` de Python, por lo que **no es requisito imprenscindible como tal**.
 
 ```powershell
 winget install SQLite.SQLite
